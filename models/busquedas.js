@@ -2,6 +2,7 @@ const axios = require("axios")
 
 
 
+
 class Busquedas {
     historial = ["Valencia","Madrid"];
 
@@ -12,7 +13,7 @@ class Busquedas {
         return {
             "language":"es",
             "limit":5,
-            "access_token":"pk.eyJ1IjoiaXRzYWFsZXhrIiwiYSI6ImNsYmh5a2N4MDA0cHczbm9kZ3lkZm5kNnYifQ.puti8KM7Dz0a-ic3x0dfSQ"
+            "access_token":process.env.MAPBOX
         }
     }
     
@@ -24,15 +25,23 @@ class Busquedas {
                 params : this.paramsMapbox
             });
             const resp =  await instance.get();
-
-            console.log(resp.data)
+            
+            
+           return resp.data.features.map((lugar)=>{
+                return {
+                    id:lugar.id,
+                    nombre: lugar.place_name,
+                    lng: lugar.center[0],
+                    lat: lugar.center[1]
+                }
+            })
      
            
      
-             return []
+             
         }
         catch(e){
-            console.log(e)
+           console.log(e)
         }
 
     }
