@@ -1,5 +1,6 @@
 # OPEN WEATHER CONSOLE APP
 
+
 ## Puedes consultar la información del tiempo de cualquier lugar del mundo a través de la consola de cualquier navegador.
 
 #### Esta app ha sido creada utilizando la API de [MapBox](https://docs.mapbox.com/) para obtener las coordenadas de busqueda , y la API de [OpenWeather](https://openweathermap.org/) para obtener la información del tiempo.
